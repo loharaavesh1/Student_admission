@@ -103,7 +103,7 @@ pytest
 
 | Action | Command |
 |--------|---------|
-| Clone Repository | `git clone https://github.com/yourusername/student-admission-system.git` |
+| Clone Repository | `git clone https://github.com/loharaavesh1/Student_admission.git` |
 | Create Virtual Environment | `python -m venv venv` |
 | Activate Virtual Environment (macOS/Linux) | `source venv/bin/activate` |
 | Activate Virtual Environment (Windows) | `venv\Scripts\activate` |
@@ -112,14 +112,5 @@ pytest
 | Run Application | `flask run` |
 | Run Tests | `pytest` |
 
-## Contributing
-- Fork the repository.
-- Create a feature branch.
-- Submit a pull request with detailed changes.
 
-## License
-This project is licensed under the MIT License.
-
----
-For further inquiries, refer to the project documentation or contact the maintainers.
 
