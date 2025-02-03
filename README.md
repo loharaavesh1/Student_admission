@@ -22,8 +22,8 @@ The Student Admission System is a web-based application that allows students to 
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/student-admission-system.git
-   cd student-admission-system
+   git clone https://github.com/loharaavesh1/Student_admission.git
+   cd Student_admission
    ```
 
 2. **Create and Activate a Virtual Environment:**
