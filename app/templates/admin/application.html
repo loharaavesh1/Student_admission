@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Application</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #2a5298;
+            margin-bottom: 20px;
+        }
+
+        .application-details {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .application-details p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .application-details strong {
+            color: #2a5298;
+        }
+
+        .document-links {
+            margin-top: 10px;
+        }
+
+        .document-links a {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .document-links a:hover {
+            background: #0056b3;
+        }
+
+        .status {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        button[name="reject"] {
+            background: #dc3545;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .flashes {
+            list-style: none;
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        .flashes li {
+            background: #ffc107;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Review Application</h2>
+        
+        <div class="application-details">
+            <p><strong>Name:</strong> {{ application.name }}</p>
+            <p><strong>Email:</strong> {{ application.email }}</p>
+            <p><strong>Phone:</strong> {{ application.phone }}</p>
+            <p><strong>Degree:</strong> {{ application.degree }}</p>
+            <p><strong>School:</strong> {{ application.school }}</p>
+            <p><strong>GPA:</strong> {{ application.gpa }}</p>
+        </div>
+
+        <div class="document-links">
+            <a href="{{ url_for('static', filename='uploads/degrees/' + application.degree_path.split('/')[-1]) }}" target="_blank">
+                View Degree Document
+            </a>
+            <a href="{{ url_for('static', filename='uploads/ids/' + application.id_proof_path.split('/')[-1]) }}" target="_blank">
+                View ID Proof
+            </a>
+        </div>
+
+        <form method="POST">
+            <button type="submit" name="approve">Approve</button>
+            <button type="submit" name="reject">Reject</button>
+        </form>
+
+        <p class="status">Status: {{ application.status }}</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+</body>
+</html>

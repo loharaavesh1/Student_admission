@@ -1,0 +1,9 @@
+Flask==2.0.1
+Flask-SQLAlchemy==3.0.1
+Flask-Login==0.5.0
+Flask-WTF==1.0.0
+pyt
+hon-dotenv==0.19.0
+reportlab==3.6.12
+pytest==7.1.2
+psycopg2-binary==2.9.3

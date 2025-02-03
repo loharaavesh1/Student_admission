@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"> <!-- Your custom styles -->
+</head>
+<body class="bg-image">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg border-0 rounded-3">
+                    <div class="card-body text-center p-5">
+                        <h1 class="display-4 text-white mb-4">Application Status</h1>
+                        <p class="lead text-white mb-4">Status: <strong>{{ application.status }}</strong></p>
+
+                        {% if application.status == 'approved' and application.pdf_path %}
+                            <a href="{{ url_for('static', filename=application.pdf_path) }}" download class="btn btn-primary btn-lg">
+                                Download Admission Letter
+                            </a>
+                        {% elif application.status == 'rejected' %}
+                            <p class="text-danger">Your application has been rejected.</p>
+                        {% else %}
+                            <p class="text-warning">Your application is under review.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

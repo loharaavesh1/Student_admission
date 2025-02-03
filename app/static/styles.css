@@ -1,0 +1,39 @@
+body.bg-image {
+    background-image: url('https://img.freepik.com/free-photo/light-blue-frame-with-office-supplies_23-2148224261.jpg?semt=ais_hybrid');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for content readability */
+    color: white;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 10px;
+    background-color: #f0f0f0;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+label {
+    font-weight: bold;
+}
